@@ -1,8 +1,10 @@
 node {
   checkout scm
 
+  def branch = env.BRANCH_NAME ?: 'master'
+  
   stage('Test') {
-    if (env.BRANCH_NAME == 'master') {
+    if (branch == 'master') {
       sh 'echo hello world'
     } else {
       sh 'echo on a branch'
