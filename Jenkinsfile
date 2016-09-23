@@ -2,6 +2,10 @@ node {
   checkout scm
 
   stage('Test') {
-    sh 'echo hello world'
+    if (env.BRANCH_NAME == 'master') {
+      sh 'echo hello world'
+    } else {
+      sh 'echo on a branch'
+    }
   }
 }
