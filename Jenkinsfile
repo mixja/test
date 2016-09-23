@@ -1,7 +1,7 @@
 node {
   checkout scm
 
-  def branch = env.BRANCH_NAME_NOT_EXIST ?: 'master'
+  def branch = env.BRANCH_NAME ?: 'master'
 
   stage('Test') {
     if (branch == 'master') {
