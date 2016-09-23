@@ -1,8 +1,8 @@
 node {
   checkout scm
 
-  def branch = env.BRANCH_NAME ?: 'master'
-  
+  def branch = env.BRANCH_NAME_NOT_EXIST ?: 'master'
+
   stage('Test') {
     if (branch == 'master') {
       sh 'echo hello world'
