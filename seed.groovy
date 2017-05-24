@@ -7,10 +7,15 @@ projectConfig.projects.each { project ->
         if (project.disabled) {
             disabled()
         }
+
         logRotator {
             daysToKeep(90)
         }
 
+        scm {
+            git(project.url)
+        }
+        
         triggers {
             scm 'H/5 * * * *'
         }
