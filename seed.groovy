@@ -13,8 +13,11 @@ projectConfig.projects.each { project ->
         }
 
         scm {
-            git project.url
-            skipTag 'true'
+        	git {
+        		remote {
+        			url(project.url)
+        		}
+        	}
         }
 
         triggers {
