@@ -1,6 +1,3 @@
-import jenkins.automation.utils.ScmUtils
-import jenkins.automation.utils.EnvironmentUtils
-
 def projectConfigFile = readFileFromWorkspace('config/projects.groovy')
 
 def projectConfig = new ConfigSlurper().parse(projectConfigFile)
