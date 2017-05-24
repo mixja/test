@@ -2,8 +2,6 @@ def projectConfigFile = readFileFromWorkspace('config/projects.groovy')
 
 def projectConfig = new ConfigSlurper().parse(projectConfigFile)
 
-shell("echo ${projectConfig.projects}")
-
 projectConfig.projects.each { project -> 
     job(project.name + '-seed-job') {
         if (project.disabled) {

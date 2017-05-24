@@ -1,4 +1,4 @@
-projects [
+projects = [
     [
         name: "test", 
         url: "https://github.com/dpaws/microtrader.git", 
