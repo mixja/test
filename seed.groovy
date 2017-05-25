@@ -28,9 +28,6 @@ projectConfig.projects.each { project ->
             dsl {
                 external jobPath
             }
-            environmentVariables {
-                env('GIT_URL',project.url)
-            }
         }
     }
 }
