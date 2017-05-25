@@ -29,8 +29,6 @@ projectConfig.projects.each { project ->
             dsl {
                 external jobPath
             }
-
-            shell('echo hello world')
         }
     }
 }
