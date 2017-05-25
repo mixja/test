@@ -1,10 +1,9 @@
 def projectConfigFile = readFileFromWorkspace('config/projects.groovy')
-
 def projectConfig = new ConfigSlurper().parse(projectConfigFile)
 
 projectConfig.projects.each { project -> 
     job(project.name + '-seed-job') {
-    	def jobPath = project.JobPath ?: "job.groovy"
+        def jobPath = project.JobPath ?: "job.groovy"
         if (project.disabled) {
             disabled()
         }
@@ -14,11 +13,11 @@ projectConfig.projects.each { project ->
         }
 
         scm {
-        	git {
-        		remote {
-        			url(project.url)
-        		}
-        	}
+            git {
+                remote {
+                    url(project.url)
+                }
+            }
         }
 
         triggers {
@@ -28,6 +27,9 @@ projectConfig.projects.each { project ->
         steps {
             dsl {
                 external jobPath
+            }
+            environmentVariables {
+                env('GIT_URL',project.url)
             }
         }
     }
